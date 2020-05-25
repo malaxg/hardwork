@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: harkwork-generator #服务名称
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/e3mall?&useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    driver-class-name: com.mysql.jdbc.Driver
+    data-username: root
+    data-password: root
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+
+server:
+  port: 10086 #启动端口号
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true #是否注册到eureka服务器
+    fetch-registry: true #是否可检索
+    service-url:
+      defaultZone: http://localhost:1111/eureka/ #服务中心
+
+
