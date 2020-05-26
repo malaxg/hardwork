@@ -1,9 +1,13 @@
 package com.malaxg.hardwork.controller;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import com.malaxg.hardwork.annotation.NonRepeat;
+import com.malaxg.hardwork.fegin.HardWorkGeneratorService;
 import com.malaxg.hardwork.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloWorldController {
-	@RequestMapping("/hello")
-	public String index() {
-		return "1asd";
+
+	@Autowired
+	private HardWorkGeneratorService hardWorkGeneratorService;
+
+
+	@PostMapping("/generateCodeTemplate")
+	public void index(@RequestBody Map<String, String> generator) {
+		hardWorkGeneratorService.generateCodeTemplete(generator);
 	}
 
 	@RequestMapping("/user")

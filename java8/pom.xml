@@ -20,7 +20,7 @@
 
         <dependency>
             <groupId>com.malaxg</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>hardwork-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

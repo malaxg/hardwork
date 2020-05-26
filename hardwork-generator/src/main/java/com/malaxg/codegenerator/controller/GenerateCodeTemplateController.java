@@ -22,7 +22,7 @@ import com.malaxg.codegenerator.generator.ReturnGenerator;
 import com.malaxg.codegenerator.service.MysqlColumnInfoJpaService;
 import com.malaxg.hardwork.util.DataVerificationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,7 +41,7 @@ public class GenerateCodeTemplateController
     private MysqlColumnInfoJpaService mysqlColumnInfoService;
     
     private final Map dataTypeMap = new HashMap<String, String>();
-    
+
     {
         dataTypeMap.put("bigint", "Long");
         dataTypeMap.put("double", "double");
@@ -51,16 +51,16 @@ public class GenerateCodeTemplateController
         dataTypeMap.put("timestamp", "Date");
         dataTypeMap.put("datetime", "Date");
     }
-    
-    @GetMapping("/generateCodeTemplate")
+
+    @PostMapping("/generateCodeTemplate")
     public void generatorCodeTemplate(@RequestBody Generator generator)
-        throws SQLException
-    {
+            throws SQLException {
+        System.out.println(generator.getAuthor() + "-------------");
         String className = generator.getClassName();
         generator.setClassName(StringUtil.toUpperCaseFirstOne(className));
         //https://www.cnblogs.com/huanzi-qch/p/10281773.html
         List<MysqlColumnInfo> columnInfos = mysqlColumnInfoService
-            .findMysqlColumnInfo(StringUtil.underscoreName(generator.getClassName()), generator.getDatabase());
+                .findMysqlColumnInfo(StringUtil.underscoreName(generator.getClassName()), generator.getDatabase());
 
         createPojo(generator, columnInfos);
         createVo(generator, columnInfos);
