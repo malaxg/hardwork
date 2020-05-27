@@ -1,4 +1,4 @@
-package com.malaxg.codegenerator.httpcontroller;
+package com.malaxg.hardwork.controller;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -61,11 +61,6 @@ public class GenerateHttpController
     public void generatorHttpFile(@RequestParam(value = "url") String url,
         @RequestParam(value = "fileSuffix", required = false, defaultValue = "Controller") String fileSuffix)
     {
-        generatorFile(url, fileSuffix);
-    }
-    
-    public void generatorFile(String url, String fileSuffix)
-    {
         // 获取当前类所在包名
         String packageName = GenerateHttpController.class.getPackage().getName();
         // 获取包下所有的fileSuffix（Controller）的java文件
@@ -80,12 +75,12 @@ public class GenerateHttpController
                 return name.endsWith(fileSuffix + ".java") && !name.equals("GenerateHttpController.java");
             }
         });
-    
+        
         if (files == null || files.length == 0)
         {
             return;
         }
-    
+        
         Arrays.stream(files).forEach(k -> {
             try
             {

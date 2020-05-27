@@ -4,27 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-parent</artifactId>
+        <version>Finchley.SR1</version>
+    </parent>
+
     <groupId>com.malaxg</groupId>
     <artifactId>hardwork</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>hardwork-common</module>
         <module>hardwork-tomcat</module>
         <module>hardwork-eureka</module>
         <module>hardwork-generator</module>
-        <module>spring</module>
-        <module>jdbc</module>
-        <module>java8</module>
         <module>common-data-jpa</module>
     </modules>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
-        <relativePath />
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,16 +34,21 @@
         <mysql.version>5.1.45</mysql.version>
         <swagger.version>2.8.0</swagger.version>
         <gson.version>2.8.2</gson.version>
+        <druid.version>1.1.10</druid.version>
         <lombok.version>1.18.10</lombok.version>
+        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <spring-boot-data-jpa.version>1.5.10.RELEASE</spring-boot-data-jpa.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!--spring boot -->
+            <!-- spring cloud -->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
             </dependency>
+            <!--spring boot -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
@@ -66,12 +68,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
-            </dependency>
-            <!-- spring cloud -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.SR</version>
+                <version>${spring-boot-data-jpa.version}</version>
             </dependency>
             <!-- junit -->
             <dependency>
@@ -134,6 +131,12 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- 数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

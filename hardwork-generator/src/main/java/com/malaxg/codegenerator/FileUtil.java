@@ -25,7 +25,8 @@ public class FileUtil
      */
     public static File createFile(String author, String className)
     {
-        File file = new File(author + "\\" + className + ".java");
+        File file = new File("src\\main\\java\\com\\malaxg\\codegenerator\\httpcontroller\\" + className +
+            ".java");
         try
         {
             //获取父目录

@@ -1,0 +1,31 @@
+### 
+POST {{host}}/generateCodeTemplate
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+CURRENT_USER_ID: wangrong
+productLine: 045969
+
+{
+  "database": "test",
+  "author": "wangrong",
+  "className": "BudgetSource"}
+
+### 
+POST {{host}}/user?name=
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+CURRENT_USER_ID: wangrong
+productLine: 045969
+
+### 
+POST {{host}}/testRepeat
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+CURRENT_USER_ID: wangrong
+productLine: 045969
+
+###
+
