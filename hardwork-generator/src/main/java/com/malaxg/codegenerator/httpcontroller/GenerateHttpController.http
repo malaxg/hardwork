@@ -1,0 +1,27 @@
+
+
+### 生成Controller的HTTP文件时，需要类加载机制把类加载进程序中
+### appointFile 如果传入该参数，则只生成指定Controoller的HTTP文件，多个文件以,隔开
+### fileSuffix 需要被处理的Controller文件后缀名，默认为Controller
+
+GET http://localhost:10086/generatorHttpFile?appointFile="GenerateHtController"
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+
+[
+  {
+    "domainName": "水电费水电费",
+    "mark": 1,
+    "subdomain": [
+      {
+        "subdomainName": "sdfsfdsdf",
+        "mark": 1
+      }
+    ]
+  }
+]
+
+###
+

@@ -2,12 +2,10 @@ package com.malaxg.codegenerator.httpcontroller;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
@@ -37,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since [产品/模块版本]
  */
 @RestController
-public class GenerateHttpController
+public class GenerateHttpC78Controller
 {
     
     /**
@@ -65,7 +63,7 @@ public class GenerateHttpController
      * @param appointFile 如果传入该参数，则只生成指定Controoller的HTTP文件，多个文件以,隔开
      * @param fileSuffix 需要被处理的Controller文件后缀名，默认为Controller
      */
-    @GetMapping("/generatorHttpFile")
+    @GetMapping("/generatorHttpFilesdfsdf345")
     public void generatorHttpFile(@RequestParam(value = "appointFile") String appointFile,
         @RequestParam(value = "fileSuffix", required = false, defaultValue = "Controller") String fileSuffix)
     {
@@ -75,7 +73,7 @@ public class GenerateHttpController
     public void generatorFile(String appointFile, String fileSuffix)
     {
         // 获取当前类所在包名
-        String packageName = GenerateHttpController.class.getPackage().getName();
+        String packageName = GenerateHttpC78Controller.class.getPackage().getName();
         // 获取包下所有的fileSuffix（Controller）的java文件
         File file = new File("src\\main\\java\\" + packageName.replace(".", "\\"));
         File[] files = null;
