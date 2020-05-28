@@ -19,6 +19,7 @@ import com.malaxg.codegenerator.generator.MethodName;
 import com.malaxg.codegenerator.generator.MethodSignatureGenerator;
 import com.malaxg.codegenerator.generator.RemarksGenerator;
 import com.malaxg.codegenerator.generator.ReturnGenerator;
+import com.malaxg.codegenerator.httpcontroller.GenerateHttpController;
 import com.malaxg.codegenerator.service.MysqlColumnInfoJpaService;
 import com.malaxg.hardwork.util.DataVerificationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,9 @@ public class GenerateCodeTemplateController
     @Autowired
     private MysqlColumnInfoJpaService mysqlColumnInfoService;
     
+    @Autowired
+    private GenerateHttpController generateHttpController;
+    
     private final Map dataTypeMap = new HashMap<String, String>();
 
     {
@@ -53,8 +57,8 @@ public class GenerateCodeTemplateController
     }
 
     @PostMapping("/generateCodeTemplate")
-    public void generatorCodeTemplate(@RequestBody Generator generator)
-            throws SQLException {
+    public void generatorCodeTemplate(@RequestBody Generator generator) throws Exception
+    {
         System.out.println(generator.getAuthor() + "-------------");
         String className = generator.getClassName();
         generator.setClassName(StringUtil.toUpperCaseFirstOne(className));

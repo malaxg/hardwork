@@ -3,15 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-parent</artifactId>
-        <version>Finchley.SR1</version>
+        <artifactId>hardwork</artifactId>
+        <groupId>com.malaxg</groupId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.malaxg-hardwork</groupId>
     <artifactId>malaxg-eureka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hardwork-eureka</name>
-    <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>

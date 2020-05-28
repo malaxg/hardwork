@@ -1,0 +1,10 @@
+
+### 为路径下面的Controller生成ControllerHttp文件
+GET http://localhost:8080/generatorHttpFile?url="asa"
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+
+###
+
