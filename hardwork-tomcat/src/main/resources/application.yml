@@ -13,3 +13,11 @@ eureka:
     fetch-registry: true #是否可检索
     service-url:
       defaultZone: http://localhost:1111/eureka/ #服务中心
+
+feign:
+  hystrix:
+    enabled: true
+
+logging: #fegin httprequest logging
+  level:
+    com.malaxg.hardwork.fegin.HardWorkGeneratorService: debug

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import com.malaxg.hardwork.annotation.NonRepeat;
 import com.malaxg.hardwork.fegin.HardWorkGeneratorService;
 import com.malaxg.hardwork.model.User;
+import com.malaxg.hardwork.web.common.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,8 +28,8 @@ public class HelloWorldController {
 
 
 	@PostMapping("/generateCodeTemplate")
-	public void index(@RequestBody Map<String, String> generator) {
-		hardWorkGeneratorService.generateCodeTemplete(generator);
+	public RestResult index(@RequestBody Map<String, String> generator) {
+		return hardWorkGeneratorService.generateCodeTemplete(generator);
 	}
 
 	@RequestMapping("/user")

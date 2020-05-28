@@ -1,0 +1,16 @@
+### 为实体生成代码模板，会解析实体URL去数据中获取表结构
+POST http://localhost:10086/generateCodeTemplate
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+CURRENT_USER_ID: {{user}}
+productLine: 045969
+
+{
+  "database": "e3mall",
+  "author": "wangrong",
+  "className": "TbOrder"
+}
+
+###
+
