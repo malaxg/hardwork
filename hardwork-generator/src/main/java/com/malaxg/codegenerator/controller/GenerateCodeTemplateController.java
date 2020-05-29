@@ -19,9 +19,9 @@ import com.malaxg.codegenerator.generator.MethodName;
 import com.malaxg.codegenerator.generator.MethodSignatureGenerator;
 import com.malaxg.codegenerator.generator.RemarksGenerator;
 import com.malaxg.codegenerator.generator.ReturnGenerator;
-import com.malaxg.codegenerator.httpcontroller.GenerateHttpController;
 import com.malaxg.codegenerator.service.MysqlColumnInfoJpaService;
 import com.malaxg.hardwork.util.DataVerificationUtil;
+import com.malaxg.hardwork.web.common.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,10 +40,7 @@ public class GenerateCodeTemplateController
 {
     @Autowired
     private MysqlColumnInfoJpaService mysqlColumnInfoService;
-    
-    @Autowired
-    private GenerateHttpController generateHttpController;
-    
+
     private final Map dataTypeMap = new HashMap<String, String>();
 
     {
@@ -57,13 +54,13 @@ public class GenerateCodeTemplateController
     }
 
     @PostMapping("/generateCodeTemplate")
-    public void generatorCodeTemplate(@RequestBody Generator generator) throws Exception
-    {
+    public RestResult generatorCodeTemplate(@RequestBody Generator generator)
+            throws SQLException {
         System.out.println(generator.getAuthor() + "-------------");
         String className = generator.getClassName();
         generator.setClassName(StringUtil.toUpperCaseFirstOne(className));
         //https://www.cnblogs.com/huanzi-qch/p/10281773.html
-        List<MysqlColumnInfo> columnInfos = mysqlColumnInfoService
+        /*List<MysqlColumnInfo> columnInfos = mysqlColumnInfoService
                 .findMysqlColumnInfo(StringUtil.underscoreName(generator.getClassName()), generator.getDatabase());
 
         createPojo(generator, columnInfos);
@@ -71,7 +68,9 @@ public class GenerateCodeTemplateController
         createController(generator, columnInfos);
         createDao(generator, columnInfos);
         createService(generator, columnInfos);
-        createServiceImpl(generator, columnInfos);
+        createServiceImpl(generator, columnInfos);*/
+
+        return RestResult.ok("生成代码模板成功");
     }
     
     private void createPojo(Generator generator, List<MysqlColumnInfo> columnInfos)

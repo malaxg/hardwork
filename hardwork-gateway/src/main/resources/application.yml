@@ -1,9 +1,17 @@
 spring:
   application:
-    name: harkwork-tomcat #服务名称
+    name: harkwork-gateway #服务网管
+
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
 
 server:
-  port: 8080 #启动端口号
+  port: 110 #启动端口号
 
 eureka:
   instance:
@@ -14,10 +22,4 @@ eureka:
     service-url:
       defaultZone: http://localhost:1111/eureka/ #服务中心
 
-feign:
-  hystrix:
-    enabled: true
 
-logging: #fegin httprequest logging
-  level:
-    com.malaxg.hardwork.fegin.HardWorkGeneratorService: debug

@@ -1,31 +1,37 @@
-### 
-POST {{host}}/generateCodeTemplate
+###创建接口
+POST http://localhost:8080/testRepeat
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
-CURRENT_USER_ID: wangrong
-productLine: 045969
 
 {
-  "database": "test",
-  "author": "wangrong",
-  "className": "BudgetSource"}
-
-### 
-POST {{host}}/user?name=
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-CURRENT_USER_ID: wangrong
-productLine: 045969
-
-### 
-POST {{host}}/testRepeat
-Accept: */*
-Cache-Control: no-cache
-Content-Type: application/json
-CURRENT_USER_ID: wangrong
-productLine: 045969
+  "my": {
+    "commonTwoFieldVos": [
+      {
+        "id": "1",
+        "label": "asd"
+      },
+      {
+        "id": "1",
+        "label": "  asd "
+      }
+    ]
+  },
+  "name": "333",
+  "age": 5
+}
 
 ###
 
+POST http://localhost:8080/generateCodeTemplate
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+CURRENT_USER_ID: {{user}}
+productLine: 045969
+
+{
+  "database": "e3mall",
+  "author": "wangrong345",
+  "className": "TbOrder"
+}
