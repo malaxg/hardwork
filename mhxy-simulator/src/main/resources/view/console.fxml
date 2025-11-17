@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malaxg.service.ConsoleController">
+    <children>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #2c3e50; -fx-padding: 10;">
+            <children>
+                <Label text="MuMu模拟器控制台" textFill="white">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="statusLabel" text="就绪" textFill="#ecf0f1" />
+            </children>
+        </HBox>
+        <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </VBox.margin>
+            <children>
+                <VBox prefWidth="350.0" spacing="10.0">
+                    <children>
+                        <Label text="模拟器列表" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <ListView fx:id="emulatorListView" VBox.vgrow="ALWAYS" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button fx:id="selectAllButton" mnemonicParsing="false" onAction="#handleSelectAll" text="全选" />
+                                <Button fx:id="deselectAllButton" mnemonicParsing="false" onAction="#handleDeselectAll" text="取消全选" />
+                            </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <Label text="操作控制" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStart" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="启动脚本" />
+                                <Button fx:id="stopButton" mnemonicParsing="false" onAction="#handleStop" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="停止脚本" />
+                                <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="刷新状态" />
+                            </children>
+                        </HBox>
+                        <Label text="运行状态" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <VBox spacing="5.0" style="-fx-background-color: #ecf0f1; -fx-padding: 10; -fx-border-color: #bdc3c7; -fx-border-radius: 3;">
+                            <children>
+                                <HBox>
+                                    <children>
+                                        <Label text="运行中模拟器:" textFill="#2c3e50" />
+                                        <Label fx:id="runningCountLabel" text="0" textFill="#27ae60" />
+                                    </children>
+                                </HBox>
+                                <HBox>
+                                    <children>
+                                        <Label text="总模拟器:" textFill="#2c3e50" />
+                                        <Label fx:id="totalCountLabel" text="0" textFill="#2c3e50" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="操作日志" textFill="#2c3e50">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <TextArea fx:id="logArea" editable="false" prefHeight="200.0" VBox.vgrow="ALWAYS" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button fx:id="clearLogButton" mnemonicParsing="false" onAction="#handleClearLog" text="清空日志" />
+                                <CheckBox fx:id="autoScrollCheckBox" mnemonicParsing="false" selected="true" text="自动滚动" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</VBox>

@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.malaxg-hardwork</groupId>
-    <artifactId>malaxg-eureka</artifactId>
+    <artifactId>hardwork-eureka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hardwork-eureka</name>
 
